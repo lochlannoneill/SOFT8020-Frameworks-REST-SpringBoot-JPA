@@ -18,6 +18,35 @@ public class DataLoader implements CommandLineRunner {
         studioRepo.save(new Studio("Walt Disney", 1923));
         studioRepo.save(new Studio("Paramount", 1912));
         studioRepo.save(new Studio("Universal", 1911));
+
+        System.out.println();
+        System.out.println("studioRepo.findAll().forEach(System.out::println);");
         studioRepo.findAll().forEach(System.out::println);
+
+        System.out.println();
+        System.out.println("System.out.println(studioRepo.findByStudioName(\"studioName\"));");
+        String studioName = "Universal";
+        studioRepo.findByStudioName("Universal").ifPresentOrElse(System.out::println, ()-> System.out.println("Error - {" + studioName + "}does not exists"));
+        studioRepo.findByStudioName("Not exists").ifPresentOrElse(System.out::println, ()-> System.out.println("Error - {" + studioName + "} does not exists"));
+
+        System.out.println();
+        System.out.println("studioRepo.changeName(1, \"Value Changed\");");
+        System.out.println(studioRepo.findByStudioId(1));
+        studioRepo.changeName(1, "Value Changed");
+        System.out.println(studioRepo.findByStudioId(1));
+
+        System.out.println();
+        System.out.println("studioRepo.findAllStudiosAlphabetically().forEach(System.out::println);");
+        studioRepo.findAllStudiosAlphabetically().forEach(System.out::println);
+
+
+//        System.out.println();
+//        System.out.println("studioRepo.findAllByOrderByYearFounded().forEach(System.out::println);");
+//        studioRepo.findAllByOrderByYearFounded().forEach(System.out::println);
+
+//        System.out.println();
+//        System.out.println("studioRepo.findByStudioNameContaining(\"e\").forEach(System.out::println);");
+//        studioRepo.findByStudioNameContaining("e").forEach(System.out::println);
+
     }
 }
