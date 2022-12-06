@@ -9,7 +9,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     DepartmentRepo departmentRepo;
 
     @Override
-    public Department saveDepartment(String name, String email) {
+    public Department createDepartment(String name, String email) {
         if (! departmentRepo.existsByName(name))
             return departmentRepo.save(new Department(name, email));
         return null;

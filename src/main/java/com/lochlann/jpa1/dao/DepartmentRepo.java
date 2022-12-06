@@ -31,7 +31,7 @@ public interface DepartmentRepo extends JpaRepository<Department, Integer> {
     List<Department> findAllDepartmentsAlphabeticallyNative();
 
     @Query("select distinct d from Department d join fetch d.officeList")  // when you're finding the department, also get the Office list
-    List<Department> findDepartmentsAndCharacters();
+    List<Department> findDepartmentsAndOffices();
 
 
 }

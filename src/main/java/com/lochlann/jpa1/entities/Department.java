@@ -16,11 +16,11 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // relies on an auto-incremented column
     private int id;
-//    @Column(name = "department_name", nullable=false, unique=true)  // manually decide column name instead of auto camalcase-detection
+//    @Column(name = "department_name", nullable=false, unique=true)  // manually decide column name instead of auto camelcase-detection
     private String name;
     private String email;
 
-    @OneToMany(mappedBy = "department") // ! should this be deparment/office???  //see Office variables
+    @OneToMany(mappedBy = "department") // ? should this be department/office???  //see Office variables
     @ToString.Exclude
     private List<Office> officeList;
     // constructor overloading
