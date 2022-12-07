@@ -1,15 +1,14 @@
 package com.lochlann.jpa1.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "offices")  // *changes the name of the table in the localhost
+//@Table(name = "offices")  // *changes the name of the table in the localhost
 public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +18,7 @@ public class Office {
     private int currentOccupancy;
 
     @ManyToOne
+    @JsonIgnore
     private Department department;
 
     public Office(int maxOccupancy, int currentOccupancy, Department department) {

@@ -11,8 +11,10 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface OfficeRepo extends JpaRepository<Office, Integer> {
-    @Query("select o from Office o where o.department.name=?1") // the first parameter {name} mapped to =?1
-    List<Office> findAllByDepartment_Name(String name);
+    @Query("select o from Office o where o.department.id=?1") // the first parameter {name} mapped to =?1, could also use @Param like below
+    List<Office> findAllByDepartmentId(int id);
+    @Query("select o from Office o where o.department.name=?1") // the first parameter {name} mapped to =?1, could also use @Param like below
+    List<Office> findAllByDepartmentName(String name);
 
     @Query("select o from Office o where o.currentOccupancy = 0")
     List<Office> findAllByOccupancyEmpty();

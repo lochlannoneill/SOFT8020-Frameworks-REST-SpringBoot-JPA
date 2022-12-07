@@ -1,5 +1,6 @@
 package com.lochlann.jpa1.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,11 +21,12 @@ public class Department {
     private String name;
     private String email;
 
-    @OneToMany(mappedBy = "department") // ? should this be department/office???  //see Office variables
+    @OneToMany(mappedBy = "department") //see Office variables
     @ToString.Exclude
+    @JsonIgnore
     private List<Office> officeList;
-    // constructor overloading
 
+    // constructor overloading
     public Department(String name, String email) {
         this.name = name;
         this.email = email;

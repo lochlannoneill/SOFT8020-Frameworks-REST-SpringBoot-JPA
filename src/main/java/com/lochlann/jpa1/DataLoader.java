@@ -6,10 +6,12 @@ import com.lochlann.jpa1.entities.Office;
 import com.lochlann.jpa1.entities.Department;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 // * if persistent database -> data load not required
 @Component
+@Profile("dev")
 public class DataLoader implements CommandLineRunner {
     final String ANSI_TEXT_RESET = "\u001b[0m";
     final String ANSI_TEXT_RED = "\u001b[31m";
@@ -67,7 +69,7 @@ public class DataLoader implements CommandLineRunner {
         // COMPLETED - find all offices in a department
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - find all offices in a department" + ANSI_TEXT_RESET);
         System.out.println(ANSI_TEXT_YELLOW + "officeRepo.findAllByName(\"Computer Science\").forEach(System.out::println);" + ANSI_TEXT_RESET);
-        officeRepo.findAllByDepartment_Name("Computer Science").forEach(System.out::println);
+        officeRepo.findAllByDepartmentName("Computer Science").forEach(System.out::println);
 
         // COMPLETED - find a department by its ID
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - find a department by its ID" + ANSI_TEXT_RESET);
@@ -92,33 +94,40 @@ public class DataLoader implements CommandLineRunner {
         // COMPLETED - add a new department
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - add a new department" + ANSI_TEXT_RESET);
         String newDepartment = "New Department";
+        System.out.println(ANSI_TEXT_YELLOW + "departmentRepo.findByName(newDepartment).ifPresentOrElse(System.out::println, ()-> System.out.println(\"Error - {\" + newDepartment + \"} does not exist\"));" + ANSI_TEXT_RESET);
         departmentRepo.findByName(newDepartment).ifPresentOrElse(System.out::println, ()-> System.out.println("Error - {" + newDepartment + "} does not exist"));
         System.out.println(ANSI_TEXT_YELLOW + "departmentRepo.save(new Department(\"New Department\", \"newdepartment@mtu.ie\"));" + ANSI_TEXT_RESET);
         departmentRepo.save(new Department("New Department", "newdepartment@mtu.ie"));
+        System.out.println(ANSI_TEXT_YELLOW + "departmentRepo.findByName(newDepartment).ifPresentOrElse(System.out::println, ()-> System.out.println(\"Error - {\" + newDepartment + \"} does not exist\"));" + ANSI_TEXT_RESET);
         departmentRepo.findByName(newDepartment).ifPresentOrElse(System.out::println, ()-> System.out.println("Error - {" + newDepartment + "} does not exist"));
 
         // COMPLETED - add a new office
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - add a new office" + ANSI_TEXT_RESET);
         int newOfficeId = (int)officeRepo.count()+1;
+        System.out.println(ANSI_TEXT_YELLOW + "officeRepo.findById(newOfficeId).ifPresentOrElse(System.out::println, ()-> System.out.println(\"Error - Office {\" + newOfficeId + \"} does not exist\"));" + ANSI_TEXT_RESET);
         officeRepo.findById(newOfficeId).ifPresentOrElse(System.out::println, ()-> System.out.println("Error - Office {" + newOfficeId + "} does not exist"));
         System.out.println(ANSI_TEXT_YELLOW + "officeRepo.save(new Office(3, 1, compsci));" + ANSI_TEXT_RESET);
         officeRepo.save(new Office(3, 1, compsci));
+        System.out.println(ANSI_TEXT_YELLOW + "officeRepo.findById(newOfficeId).ifPresentOrElse(System.out::println, ()-> System.out.println(\"Error - Office {\" + newOfficeId + \"} does not exist\"));" + ANSI_TEXT_RESET);
         officeRepo.findById(newOfficeId).ifPresentOrElse(System.out::println, ()-> System.out.println("Error - Office {" + newOfficeId + "} does not exist"));
 
         // COMPLETED - delete an office
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - service should delete an office" + ANSI_TEXT_RESET);
-        System.out.println(ANSI_TEXT_YELLOW + "officeRepo.deleteById(newOfficeId);" + ANSI_TEXT_RESET);
+        System.out.println(ANSI_TEXT_YELLOW + "officeRepo.findById(newOfficeId).ifPresentOrElse(System.out::println, ()-> System.out.println(\"Error - {\" + newOfficeId + \"} does not exist\"));" + ANSI_TEXT_RESET);
         officeRepo.findById(newOfficeId).ifPresentOrElse(System.out::println, ()-> System.out.println("Error - {" + newOfficeId + "} does not exist"));
-        System.out.println("officeRepo.deleteById(officeId);");
+        System.out.println("officeRepo.deleteById(newOfficeId);");
         officeRepo.deleteById(newOfficeId);
+        System.out.println(ANSI_TEXT_YELLOW + "officeRepo.findById(newOfficeId).ifPresentOrElse(System.out::println, ()-> System.out.println(\"Error - {\" + newOfficeId + \"} does not exist\"));" + ANSI_TEXT_RESET);
         officeRepo.findById(newOfficeId).ifPresentOrElse(System.out::println, ()-> System.out.println("Error - {" + newOfficeId + "} does not exist"));
 
         // COMPLETED - move an office to a different department
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - move an office to a different department" + ANSI_TEXT_RESET);
         int officeId = 5;
+        System.out.println(ANSI_TEXT_YELLOW + "officeRepo.findById(officeId).ifPresentOrElse(System.out::println, ()-> System.out.println(\"Error - Office {\" + officeId + \"} does not exist\"));" + ANSI_TEXT_RESET);
         officeRepo.findById(officeId).ifPresentOrElse(System.out::println, ()-> System.out.println("Error - Office {" + officeId + "} does not exist"));
         System.out.println(ANSI_TEXT_YELLOW + "officeRepo.changeDepartment(officeId, business);" + ANSI_TEXT_RESET);
         officeRepo.changeDepartment(officeId, business);
+        System.out.println(ANSI_TEXT_YELLOW + "officeRepo.findById(officeId).ifPresentOrElse(System.out::println, ()-> System.out.println(\"Error - Office {\" + officeId + \"} does not exist\"));" + ANSI_TEXT_RESET);
         officeRepo.findById(officeId).ifPresentOrElse(System.out::println, ()-> System.out.println("Error - Office {" + officeId + "} does not exist"));
 
         //TODO -  update the number in an office, subject to not exceeding the maximum and not being a negative number.
@@ -172,6 +181,9 @@ public class DataLoader implements CommandLineRunner {
         // TODO - Validation
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_RED + "TODO - Validation" + ANSI_TEXT_RESET);
             // TODO - When data is received on the client side it should be validated and your web service should return an appropriate response code and message to let the client know what went wrong.
+
+        // TODO - Finshing touches
+            // TODO - change from jpa1 to assignment2
 
     }
 }
