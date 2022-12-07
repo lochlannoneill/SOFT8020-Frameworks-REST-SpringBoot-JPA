@@ -29,9 +29,9 @@ public interface OfficeRepo extends JpaRepository<Office, Integer> {
 
     @Modifying(clearAutomatically = true)  // forget the persistence context and make a new call
     @Transactional
-    @Query("update Office o set o.department = :newDepartment where o.id = :id")
-    // ? should i overload this constructor to allow for departmentId instead of object
-    void changeDepartment(@Param("id") int id, @Param("newDepartment") int newDepartmentId);
+    @Query("update Office o set o.department = :departmentId where o.id = :id")
+    // ? should i overload this constructor to allow for departmentId instead of object, for the PATCH request???
+    void changeDepartment(@Param("id") int id, @Param("departmentId") int departmentId);
 
     boolean existsById(int id);
 

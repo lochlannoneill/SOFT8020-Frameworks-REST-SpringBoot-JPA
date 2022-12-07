@@ -18,6 +18,8 @@ public class OfficeDtoMapper extends RepresentationModelAssemblerSupport<Office,
         OfficeDto officeDto = new OfficeDto(entity.getMaxOccupancy(), entity.getCurrentOccupancy(), entity.getDepartment());
         officeDto.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(OfficeWebService.class).getById(entity.getId())).withSelfRel());
         officeDto.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(OfficeWebService.class).changeDepartment(entity.getId(), null, null)).withRel("changeDepartment"));
+        // TODO
+        //  officeDto.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(OfficeWebService.class).getDepartmentById(entity.getGetDepartment().getId().withRel"department"));
         return officeDto;
     }
 

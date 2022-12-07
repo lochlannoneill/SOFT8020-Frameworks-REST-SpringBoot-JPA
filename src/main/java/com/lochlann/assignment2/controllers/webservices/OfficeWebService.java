@@ -29,13 +29,25 @@ public class OfficeWebService {
     @Autowired
     private DepartmentRepo departmentRepo;
 
-    // * GET - https://localhost:1337/offices GET
+    // * GET - https://localhost:1337/offices
     @GetMapping("/offices")
     public CollectionModel<OfficeDto> getAll() {
         return officeDtoMapper.toCollectionModel(officeRepo.findAll());
     }
 
-    // * GET - http://localhost:1337/offices/1 GET
+    // * GET - https://localhost:1337/offices/empty
+    @GetMapping("/offices/empty")
+    public CollectionModel<OfficeDto> getAllEmpty() {
+        return officeDtoMapper.toCollectionModel(officeRepo.findAllByOccupancyEmpty());
+    }
+
+    // * GET - https://localhost:1337/notFull
+    @GetMapping("/offices/notFull")
+    public CollectionModel<OfficeDto> getAllNotFull() {
+        return officeDtoMapper.toCollectionModel(officeRepo.findAllByOccupancyNotFull());
+    }
+
+    // * GET - http://localhost:1337/offices/1
     @GetMapping("/offices/{id}")
     public OfficeDto getById(@PathVariable("id") int id) {
         Optional<Office> officeOptional = officeRepo.findById(id);

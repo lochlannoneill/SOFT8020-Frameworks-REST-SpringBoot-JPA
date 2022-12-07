@@ -139,6 +139,16 @@ public class DataLoader implements CommandLineRunner {
 
 
 
+        // COMPLETED - Implementation and Architecture
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "DOING - Implementation and Architecture" + ANSI_TEXT_RESET);
+            // COMPLETED - H2 embedded database
+            // COMPLETED - Maven
+            // COMPLETED - Spring Boot
+            // COMPLETED - JPA
+            // COMPLETED - REST
+            // COMPLETED - HATEOAS
+            // TODO - Security
+            // COMPLETED - Lombok
 
         // COMPLETED - AOP
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - AOP" + ANSI_TEXT_RESET);
@@ -146,11 +156,23 @@ public class DataLoader implements CommandLineRunner {
 
         // TODO - Requests
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "DOING - Requests -> Use Postman client to make http requests" + ANSI_TEXT_RESET);
+            //  COMPLETED - find all departments
+            //  COMPLETED - find all offices
+            //  COMPLETED - find all offices in a department
+            //  COMPLETED - find a department by its ID
+            //  COMPLETED - find an office by its ID
+            //  COMPLETED - find all empty offices
+            //  COMPLETED - find all offices with space for staff
+            //  ! Error - add a new department
+            //  COMPLETED - add a new office
+            //  COMPLETED - delete an office
+            //  ! Error - move an office to a different department
+            //  TODO - update the number in an office, subject to not exceeding the maximum and not being a negative number.
+
 
 
         // COMPLETED - HATEOAS
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - HATEOAS" + ANSI_TEXT_RESET);
-
 
         // TODO - UNIT TESTS
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_RED + "TODO - UNIT TESTS" + ANSI_TEXT_RESET);
