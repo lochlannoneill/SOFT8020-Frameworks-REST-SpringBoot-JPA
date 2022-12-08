@@ -1,8 +1,9 @@
 package com.lochlann.assignment2.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor

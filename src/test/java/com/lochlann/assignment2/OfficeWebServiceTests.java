@@ -29,15 +29,16 @@ public class OfficeWebServiceTests {
 
     // COMPLETED - get all offices
     // COMPLETED - delete an office
-    // TODO - office exists and is deleted (by HOD or HOS)
-    // COMPLETED - office does not exist and cannot be deleted
-    // TODO - office exists but cannot be deleted because not user was provided
+        // TODO - office exists and is deleted (by HOD or HOS)
+        // COMPLETED - office does not exist and cannot be deleted
+        // TODO - office exists but cannot be deleted because not user was provided
     // TODO - posting a department you must write several requests
-    // TODO - data is correct and it can be created (by a HOS)
-    // TODO - data is correct but the user is not HOS (only if you have added security)
-    // TODO - data is correct but no user provided (only if you have added security)
-    // TODO - data correct but cannot be created because of a conflict
-    // TODO - data not able to bind to the DTO e.g. a required field is blank or a constraint is not adhered to
+        // TODO - posting a department you must write several requests
+        // TODO - data is correct and it can be created (by a HOS)
+        // TODO - data is correct but the user is not HOS (only if you have added security)
+        // TODO - data is correct but no user provided (only if you have added security)
+        // TODO - data correct but cannot be created because of a conflict
+        // TODO - data not able to bind to the DTO e.g. a required field is blank or a constraint is not adhered to
 
     // COMPLETED - get all offices
     @Test

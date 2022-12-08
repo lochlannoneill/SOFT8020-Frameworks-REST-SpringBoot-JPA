@@ -1,6 +1,6 @@
 package com.lochlann.assignment2.controllers;
 
-import jakarta.validation.constraints.Min;
+import javax.validation.constraints.Min;
 
 public record ChangeDepartment(
     @Min(1)

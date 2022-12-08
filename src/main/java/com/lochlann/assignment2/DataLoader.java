@@ -2,11 +2,14 @@ package com.lochlann.assignment2;
 
 import com.lochlann.assignment2.dao.OfficeRepo;
 import com.lochlann.assignment2.dao.DepartmentRepo;
+import com.lochlann.assignment2.dao.StaffDao;
 import com.lochlann.assignment2.entities.Office;
 import com.lochlann.assignment2.entities.Department;
+import com.lochlann.assignment2.entities.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 // * if persistent database -> data load not required
@@ -26,13 +29,17 @@ public class DataLoader implements CommandLineRunner {
     DepartmentRepo departmentRepo;
     @Autowired
     OfficeRepo officeRepo;
+    @Autowired
+    StaffDao staffDao;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {
-        Department compsci = departmentRepo.save(new Department("Computer Science", "computersciencecork@mtu.ie"));
-        Department maths = departmentRepo.save(new Department("Mathematics", "mathematicscork@mtu.ie"));
-        Department construction = departmentRepo.save(new Department("Construction", "mathematicscork@mtu.ie"));
-        Department business = departmentRepo.save(new Department("Business", "buesinesscork@mtu.ie"));
+        Department compsci = departmentRepo.save(new Department("Computer Science", "computersciencecork@department.mtu"));
+        Department maths = departmentRepo.save(new Department("Mathematics", "mathematicscork@department.mtu"));
+        Department construction = departmentRepo.save(new Department("Construction", "mathematicscork@department.mtu"));
+        Department business = departmentRepo.save(new Department("Business", "buesinesscork@department.mtu"));
 
         officeRepo.save(new Office(3, 1, compsci));
         officeRepo.save(new Office(3, 2, compsci));
@@ -41,6 +48,9 @@ public class DataLoader implements CommandLineRunner {
         officeRepo.save(new Office(2, 2, maths));
         officeRepo.save(new Office(3, 0, construction));
         officeRepo.save(new Office(5, 5, business));
+
+        Staff hos = staffDao.save(new Staff("hos@staff.mtu", passwordEncoder.encode("secret"), "HOS"));
+        Staff hod = staffDao.save(new Staff("hod@staff.mtu", passwordEncoder.encode("secret"), "HOD"));
 
         // COMPLETED - Find all departments
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - Find all departments" + ANSI_TEXT_RESET);
@@ -147,7 +157,7 @@ public class DataLoader implements CommandLineRunner {
             // COMPLETED - JPA
             // COMPLETED - REST
             // COMPLETED - HATEOAS
-            // TODO - Security
+            // COMPLETED - Security
             // COMPLETED - Lombok
 
         // COMPLETED - AOP
@@ -177,7 +187,7 @@ public class DataLoader implements CommandLineRunner {
         // TODO - UNIT TESTS
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_RED + "TODO - UNIT TESTS" + ANSI_TEXT_RESET);
             // COMPLETED - get all offices
-            // TODO - delete an office
+            // COMPLETED - delete an office
                 // TODO - office exists and is deleted (by HOD or HOS)
                 // TODO - office does not exist and cannot be deleted
                 // TODO - office exists but cannot be deleted because not user was provided
@@ -202,7 +212,7 @@ public class DataLoader implements CommandLineRunner {
 
         // COMPLETED - Validation
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - Validation" + ANSI_TEXT_RESET);
-            // TODO - When data is received on the client side it should be validated and your web service should return an appropriate response code and message to let the client know what went wrong.
+            // COMPLETED - When data is received on the client side it should be validated and your web service should return an appropriate response code and message to let the client know what went wrong.
 
         // TODO - Finishing touches
             // COMPLETED - change from jpa1 to assignment2

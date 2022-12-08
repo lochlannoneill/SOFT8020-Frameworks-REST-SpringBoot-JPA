@@ -7,7 +7,6 @@ import com.lochlann.assignment2.dao.DepartmentRepo;
 import com.lochlann.assignment2.dao.OfficeRepo;
 import com.lochlann.assignment2.entities.Department;
 import com.lochlann.assignment2.entities.Office;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.hateoas.CollectionModel;
@@ -16,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,7 +1,8 @@
 package com.lochlann.assignment2.controllers;
 
-import jakarta.validation.constraints.*;
-import org.springframework.data.repository.query.Param;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 // TODO - @Param("maxOccupancy)int maxOccupancy, @Max(maxOccupancy)int currentOccupancy ???
 public record NewOffice (
