@@ -82,7 +82,7 @@ public class DepartmentWebServiceTests {
                 .andExpect(status().isConflict());
     }
 
-    // TODO - data not able to bind to the DTO e.g. a required field is blank or a constraint is not adhered to
+    // COMPLETED - data not able to bind to the DTO e.g. a required field is blank or a constraint is not adhered to
     @Test
     @SneakyThrows
     @WithMockUser(roles="HOS")

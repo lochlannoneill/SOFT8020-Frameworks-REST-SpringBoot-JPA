@@ -5,11 +5,11 @@ import com.lochlann.assignment2.dao.DepartmentRepo;
 import com.lochlann.assignment2.dao.StaffDao;
 import com.lochlann.assignment2.entities.Office;
 import com.lochlann.assignment2.entities.Department;
-//import com.lochlann.assignment2.entities.Staff;
+import com.lochlann.assignment2.entities.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 // * if persistent database -> data load not required
@@ -31,8 +31,8 @@ public class DataLoader implements CommandLineRunner {
     OfficeRepo officeRepo;
     @Autowired
     StaffDao staffDao;
-//    @Autowired
-//    PasswordEncoder passwordEncoder;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {
@@ -47,8 +47,8 @@ public class DataLoader implements CommandLineRunner {
         officeRepo.save(new Office(2, 2, maths));
         officeRepo.save(new Office(3, 0, construction));
         officeRepo.save(new Office(5, 5, business));
-//        Staff hos = staffDao.save(new Staff("hos@staff.mtu", passwordEncoder.encode("secret"), "HOS", false, false));
-//        Staff hod = staffDao.save(new Staff("hod@staff.mtu", passwordEncoder.encode("secret"), "HOD", false, false));
+        Staff hos = staffDao.save(new Staff("hos@staff.mtu", passwordEncoder.encode("secret"), "HOS", false, false));
+        Staff hod = staffDao.save(new Staff("hod@staff.mtu", passwordEncoder.encode("secret"), "HOD", false, false));
 
         // COMPLETED - Find all departments
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - Find all departments" + ANSI_TEXT_RESET);
