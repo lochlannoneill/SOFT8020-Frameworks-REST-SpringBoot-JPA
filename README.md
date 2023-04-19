@@ -9,17 +9,17 @@
 Lorem Ipsum.  
 
 ### TESTS
-**Department Service**
+**Department Service**  
 ![test_post_department](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/test_post_department.PNG?raw=true)  
-**Office SErvice**
+**Office SErvice**  
 ![test_delete_office](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/test_delete_office.PNG?raw=true)  
 
 ### HTTP
-**GET Departments**
+**GET Departments**  
 ![http_get_departments](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/http_get_departments.PNG?raw=true)  
-**GET Departments (Authenticated)**
+**GET Departments (Authenticated)**  
 ![http_get_department_authenticated](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/http_get_department_authenticated.PNG?raw=true)  
-**DELETE Office**
+**DELETE Office**  
 ![http_delete_office](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/http_delete_office.PNG?raw=true)  
 
 ### AOP
