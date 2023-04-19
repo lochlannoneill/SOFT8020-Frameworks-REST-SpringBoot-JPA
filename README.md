@@ -17,7 +17,7 @@ Office Service
   
 
 ### HTTP REQUESTS:
-GET Departments (Authenticated)  
+GET All Departments (Authenticated)  
 ![http_get_departments](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/http_get_departments.PNG?raw=true)  
 DELETE Office  
 ![http_delete_office](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/http_delete_office.PNG?raw=true)  
