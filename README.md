@@ -10,16 +10,16 @@ Lorem Ipsum.
   
 
 ### TESTS:
-**Department Service**  
+Department Service  
 ![test_post_department](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/test_post_department.PNG?raw=true)  
-**Office Service**  
+Office Service  
 ![test_delete_office](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/test_delete_office.PNG?raw=true)  
   
 
 ### HTTP:
-**GET Departments (Authenticated)**  
+GET Departments (Authenticated  
 ![http_get_departments](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/http_get_departments.PNG?raw=true)  
-**DELETE Office**  
+DELETE Office  
 ![http_delete_office](https://github.com/lochlannoneill/SOFT8020-Frameworks-REST-SpringBoot-JPA/blob/main/screenshots/http_delete_office.PNG?raw=true)  
   
 
