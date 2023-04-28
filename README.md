@@ -1,13 +1,12 @@
 <!--https://github.com/darsaveli/Readme-Markdown-Syntax-->
 
+
 # SOFT8020-Frameworks-REST-SpringBoot-JPA
+
 
 ### Collaborators:
 * **[Lochlann O Neill](https://github.com/lochlannoneill)**
 
-### About:
-Lorem Ipsum.  
-  
 
 ### TESTS:
 Department Service  
